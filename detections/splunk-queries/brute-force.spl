@@ -1,0 +1,7 @@
+index=* EventCode=4625
+| stats count by src_ip, Account_Name
+| where count > 10
+| sort -count
+| rename src_ip as "Attacker IP"
+           Account_Name as "Target Account"
+           count as "Failed Attempts"
